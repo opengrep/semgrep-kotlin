@@ -958,7 +958,7 @@ module.exports = grammar({
     // Modifiers
     // ==========
 
-    modifiers: $ => prec.left(repeat1(choice($.annotation, $._modifier))),
+    modifiers: $ => prec.left(repeat1(prec.left(1, choice($.annotation, $._modifier)))),
 
     parameter_modifiers: $ => repeat1(choice($.annotation, $.parameter_modifier)),
 
